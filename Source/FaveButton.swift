@@ -64,10 +64,13 @@ open class FaveButton: UIButton {
     fileprivate var faveIconImage:UIImage?
     fileprivate var faveIcon: FaveIcon!
     
+    fileprivate var disableAnimation: Bool = false
     
     override open var isSelected: Bool{
         didSet{
-            animateSelect(self.isSelected, duration: Const.duration)
+            if !self.disableAnimation {
+                animateSelect(self.isSelected, duration: Const.duration)
+            }
         }
     }
     
@@ -89,6 +92,12 @@ open class FaveButton: UIButton {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         applyInit()
+    }
+    
+    public func setSelected(selected: Bool, animated: Bool = true) {
+        self.disableAnimation = animated;
+        self.isSelected = selected;
+        self.disableAnimation = false;
     }
 }
 
