@@ -196,7 +196,7 @@ extension FaveButton{
         
         faveIcon.animateSelect(isSelected, fillColor: color, duration: duration, delay: Const.faveIconShowDelay)
         
-        if isSelected{
+        if isSelected && !self.disableAnimation {
             let radius           = bounds.size.scaleBy(1.3).width/2 // ring radius
             let igniteFromRadius = radius*0.8
             let igniteToRadius   = radius*1.1
