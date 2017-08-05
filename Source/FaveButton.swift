@@ -71,6 +71,9 @@ open class FaveButton: UIButton {
             if !self.disableAnimation {
                 animateSelect(self.isSelected, duration: Const.duration)
             }
+            else {
+                animateSelect(self.isSelected, duration: 0)
+            }
         }
     }
     
@@ -95,7 +98,7 @@ open class FaveButton: UIButton {
     }
     
     public func setSelected(selected: Bool, animated: Bool = true) {
-        self.disableAnimation = animated;
+        self.disableAnimation = !animated;
         self.isSelected = selected;
         self.disableAnimation = false;
     }
