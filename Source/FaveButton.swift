@@ -193,8 +193,8 @@ extension FaveButton{
 extension FaveButton{
     fileprivate func animateSelect(_ isSelected: Bool, duration: Double){
         let color  = isSelected ? selectedColor : normalColor
-        
-        faveIcon.animateSelect(isSelected, fillColor: color, duration: duration, delay: Const.faveIconShowDelay)
+        let delay = self.disableAnimation ? 0.0 : Const.faveIconShowDelay
+        faveIcon.animateSelect(isSelected, fillColor: color, duration: duration, delay: delay)
         
         if isSelected && !self.disableAnimation {
             let radius           = bounds.size.scaleBy(1.3).width/2 // ring radius
