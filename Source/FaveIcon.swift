@@ -91,9 +91,9 @@ extension FaveIcon{
 extension FaveIcon{
     
     func animateSelect(_ isSelected: Bool = false, fillColor: UIColor, duration: Double = 0.5, delay: Double = 0){
-        if nil == tweenValues{
+//        if nil == tweenValues {
             tweenValues = generateTweenValues(from: 0, to: 1.0, duration: CGFloat(duration))
-        }
+//        }
         
         CATransaction.begin()
         CATransaction.setDisableActions(true)
